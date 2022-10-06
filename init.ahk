@@ -41,3 +41,29 @@ openPrivateLeboncoin:
 	Click, 914, 700
 	Sleep, 1000
 return
+
+login:
+; login icon
+	Click, 1270, 128
+	Sleep, 1000
+; email
+	Click, 625, 450
+	Sleep, 1000
+	Send, leocrapart@yahoo.fr
+	Sleep, 1000
+; password
+	Click, 650, 550
+	Send, Dupr0pnet
+	Sleep, 1000
+; login button
+	Click, 765, 650
+	Sleep, 2000
+return
+
+
+receiveCode:
+; click receive button
+	Click, 785, 550
+	Sleep, 1000
+	; enter sms code
+return
