@@ -331,9 +331,6 @@ Location d’un utilitaire / Camion / fourgon avec Chauffeur pour déménagement
 	phone1 := "0156374553"
 	phone2 := "0171183931"
 
-	deposerAnnoncePro(title5, description5, image5, city5, phone1)
-	Sleep 360000
-
 	deposerAnnoncePro(title1, description1, image1, city1, phone1)
 	Sleep 360000
 	deposerAnnoncePro(title2, description2, image2, city2, phone2)
