@@ -1,3 +1,4 @@
+#Include %A_ScriptDir%\data-interface2.ahk
 CoordMode, Mouse, Screen
 SetTimer, posTooltip, 10
 return
@@ -331,24 +332,29 @@ Location d’un utilitaire / Camion / fourgon avec Chauffeur pour déménagement
 	phone1 := "0156374553"
 	phone2 := "0171183931"
 
+	n := 7
+
+	deposerAnnoncePro(title(n), description(n), image(n), location(n), phone(n))
+	Sleep 330000
+
 	deposerAnnoncePro(title1, description1, image1, city1, phone1)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title2, description2, image2, city2, phone2)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title3, description3, image3, city3, phone1)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title4, description4, image4, city4, phone2)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title5, description5, image5, city5, phone1)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title6, description6, image6, city6, phone2)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title7, description7, image7, city7, phone1)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title8, description8, image8, city8, phone2)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title9, description9, image9, city9, phone1)
-	Sleep 360000
+	Sleep 330000
 	deposerAnnoncePro(title10, description10, image10, city10, phone2)
 
 	; Gosub, login
@@ -356,7 +362,7 @@ return
 
 
 
-deposerAnnoncePro(title, description, image, city, phone)
+deposerAnnoncePro(title, description, image, location, phone)
 {
 ; deposer annonce url
 	Click 274, 47
@@ -429,7 +435,7 @@ deposerAnnoncePro(title, description, image, city, phone)
 
 ; location
 	Click Left, 400, 275, 3
-	Send % city
+	Send % location
 	Send {Enter}
 	Sleep 1000
 ; continue
@@ -441,17 +447,17 @@ deposerAnnoncePro(title, description, image, city, phone)
 	Click Left, 900, 575, 2
 	Send % phone
 ;;;;;;;;;;;;;;;;;;;;; 
-; continue
-	Click, 1000, 730
-	Sleep, 2000
+; ; continue
+; 	Click, 1000, 730
+; 	Sleep, 2000
 
-; no boost
-	Click, 1200, 830
-	Sleep, 500
+; ; no boost
+; 	Click, 1200, 830
+; 	Sleep, 500
 
-; back to homepage
-	Click, 330, 127
-	Sleep, 1000
+; ; back to homepage
+; 	Click, 330, 127
+; 	Sleep, 1000
 
 	return
 }
