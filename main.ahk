@@ -132,9 +132,19 @@ deposerAnnoncePro(title, description, image, location, phone)
 	return
 }
 	
-
-
 ESC::ExitApp
+
+
+;c;e; os agnostic
+;c;e; sleep
+;c;e; send keys
+; ;e; paste text (and emojis)
+;c;e; click
+;c;e; wheeldown
+;x;e; excel read
+;x;   private chrome
+;  x  pass bot check
+
 
 
 ; next
