@@ -19,16 +19,17 @@ return
 ; Lyon (69008) 8e Arrondissement
 ; Paris (75018) 18e Arrondissement
 
-^r::
-	; Gosub, openPrivateLeboncoin
-	; Gosub, login
+;uncomment to activate ctrl-r launch
+; ^r::
+; 	; Gosub, openPrivateLeboncoin
+; 	; Gosub, login
 
-	n := 7
+; 	n := 7
 
-	deposerAnnoncePro(title(n), description(n), image(n), location(n), phone(n))
-	Sleep 330000
+; 	deposerAnnoncePro(title(n), description(n), image(n), location(n), phone(n))
+; 	Sleep 330000
 
-return
+; return
 
 
 
