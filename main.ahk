@@ -1,4 +1,4 @@
-#Include %A_ScriptDir%\data-interface2.ahk
+#Include %A_ScriptDir%\data-interface.ahk
 CoordMode, Mouse, Screen
 SetTimer, posTooltip, 10
 return
@@ -8,18 +8,8 @@ posTooltip:
 	ToolTip, % "x: " x "`ny: " y
 return
 
-; Nice (06000)
-; Marseille (13008) 8e Arrondissement
-; Brest (29200)
-; Bordeaux (33000)
-; Grenoble (38000)
-; Montpellier (34000)
-; Lille (59000)
-; Perpignan (66000)
-; Lyon (69008) 8e Arrondissement
-; Paris (75018) 18e Arrondissement
 
-;uncomment to activate ctrl-r launch
+; uncomment to activate ctrl-r launch
 ; ^r::
 ; 	; Gosub, openPrivateLeboncoin
 ; 	; Gosub, login
@@ -27,14 +17,186 @@ return
 ; 	n := 7
 
 ; 	deposerAnnoncePro(title(n), description(n), image(n), location(n), phone(n))
-; 	Sleep 330000
+; 	sleep 330000
+; 	return
 
-; return
+doubleClick(x, y) {
+	click %x%, %y%
+	click %x%, %y%
+	return
+}
+
+tripleClick(x, y) {
+	click %x%, %y%
+	click %x%, %y%
+	click %x%, %y%
+	return
+}
+
+paste(text) {
+	clipboard = %text%
+	send ^v
+	return
+}
+
+init(email, password) {
+  click(398, 84)
+  paste("https://leboncoin.fr")
+  send {enter}
+  sleep 7000
+
+  ; autoriser les cookies
+  click 732, 674
+  sleep 1000
+
+  ; login
+  ; aller à deposer une annonce
+  click 398, 84
+  paste("https://leboncoin.fr/deposer-une-annonce")
+  send {enter}
+  sleep 3000
+  ; icone se connecter
+  click 1130, 126
+  sleep 5000
+
+  ; email
+  click 495, 454
+	sleep 500
+  paste(%email%)
+  sleep 500
+  ; password
+  click 542, 548
+  sleep 500
+  paste(%password%)
+  sleep 500
+
+  ; bouton se connecter
+  click 619, 668
+  sleep 7000
+
+  ; cliquer sur "j'ai compris"
+  click 605, 644
+  sleep 2000
+	return
+}
+
+deposerAnnoncePro(title, description, image, location, phone) {
+; deposer annonce url
+  click 179, 87
+  sleep 500
+  paste("leboncoin.fr/deposer-une-annonce")
+  send {enter}
+  sleep 3000
+
+  ; prestation de services
+  ; categories 
+  ; services > prestation de services
+  ; search bar
+  click 314 334
+  sleep 200
+  paste("prestation")
+  sleep 1000
+  send {enter}
+  sleep 1000
+  ;continue
+  click 840 400
+
+  ; title
+  click 159 295
+  click 159 295
+  sleep 200
+  paste(%title%)
+
+  ;; description
+  click 147 517
+  paste(%description%)
+  ; unfocus 
+  click 62 424
+  ; continue
+  send {end}
+  sleep 1000
+  click 846 726
+  sleep 1000
+
+  ; price
+  ; no price
+
+  ; continue
+  click 825 367
+  sleep 1000
+
+  ;; image
+  ; load image button
+  click 198 303
+  sleep 1000
 
 
+  ; click Telechargements
+  click 337 288
+  sleep 200
 
-deposerAnnoncePro(title, description, image, location, phone)
-{
+  ; search bar
+  click 873 116
+  sleep 500
+  paste(%image%)
+  sleep 1000
+  send {enter}
+  sleep 2000
+  click 476 253
+  sleep 500
+  send {enter}
+
+  ; wait image loading
+  sleep 4000
+  ; continue
+  click 826 642
+  sleep 1000
+
+  ; location
+  tripleClick(661, 273)
+  sleep 1000
+  paste(%location%)
+  sleep 1000
+  send {enter}
+  sleep 1000
+  send {enter}
+  sleep 2000
+  ; ;unfocus
+  ; (click 70 397)
+  ; (sleep 500)
+  ; ; continue
+  ; (click 877 558)
+  ; (sleep 1000)
+
+
+  ; phone
+  doubleClick(614, 514)
+  sleep 500
+  paste(%phone%)
+  sleep 1000
+
+  ; ;;;;;;;;;;;;;;;;;;;;; 
+  ; continue
+  click 848 669
+  sleep 3000
+  ; no boost
+  click 995 775
+  sleep 4000
+
+  ; back to homepage
+  click 174 131
+  sleep 3000
+
+  ; idle position, tells the bot finished
+	mouseMove 100, 100
+	return
+}
+
+
+; past one
+
+deposerAnnoncePro0(title, description, image, location, phone) {
+
 ; deposer annonce url
 	Click 274, 47
 	Sleep 500
@@ -134,125 +296,3 @@ deposerAnnoncePro(title, description, image, location, phone)
 }
 	
 ESC::ExitApp
-
-
-;c;e; os agnostic
-;c;e; sleep
-;c;e; send keys
-; ;e; paste text (and emojis)
-;c;e; click
-;c;e; wheeldown
-;x;e; excel read
-;x;   private chrome
-;  x  pass bot check
-
-
-
-; next
-; compte entreprise
-; déménagement > prestation de services
-
-
-; schedule
-; 21h, moins de dépots d'annonces
-; 20h-21h, pleins de dépots
-
-
-; 10 titres
-; 10 descriptions
-; 10 villes
-; alterner les numéros 1 sur 2
-; 6 mins d'intervalle
-
-
-
-; Nice (06000)
-; Marseille (13008) 8e Arrondissement
-; Brest (29200)
-; Bordeaux (33000)
-; Grenoble (38000)
-; Montpellier (34000)
-; Lille (59000)
-; Perpignan (66000)
-; Lyon (69008) 8e Arrondissement
-; Paris (75018) 18e Arrondissement
-
-
-; traquer les annonces postées par ville
-; en ligne != affichée
-
-
-
-
-; 8h00
-; Nice (06000)
-; Sérieux Transporteurs / PAS CHER
-; 1.jpg
-; * * * LONGUE DISTANCE UNIQUEMENT * * *
-
-; Tarifs a partir de 649€
-
-; Location  Camion  20m3  avec  Chauffeur, Nos  Utilitaires  sont  Équipés  de Hayon, ideal pour un Déménagement ou pour Transporter de la Marchandise en Vrac et sur  Palettes.
-
-; Le jour du Déménagement, il suffit de réunir de la famille  et  des  amis  pour  vous  aider  à  Charger  et  à  Décharger le Camion.
-
-; Pas  de  groupage  ou  retard  de  Livraison, Vos  effets  sont  achemines  partout  en   France  et  Europe  en  24/48h.
-
-; Nous  proposons  une  offre  TOUT  INCLUS : le Camion + le Chauffeur + les Frais de route + le Carburant + l'Assurance incluse et Gratuite !
-
-; Avantages :
-; PAS DE CAUTION
-; Vous ne payez que l’aller simple
-
-; Mots clefs :
-
-; Déménageur / Transporteur / Transport / Déménager / Transporter
-
-
-
-; 8h06
-; Marseille (13008) 8e Arrondissement
-; On vous assure un meilleur Déménagement
-; 2.jpg
-
-; 8h12
-; Brest (29200)
-; Déménagement et Transport de qualité
-; 3.jpg
-
-
-; 8h18
-; Bordeaux (33000)
-; Profitez de l’expertise d'Équipes de Déménagement
-; 4.jpg
-
-; 8h24
-; Grenoble (38000)
-; Nous mobilisons une équipe de Déménageurs Qualifiés
-; 5.jpg
-
-; 8h30
-; Montpellier (34000)
-; En toute sécurité, on vous Déménage
-; 6.jpg
-
-
-; 8h36
-; Lille (59000)
-; Déménagement  ET  Transport / Transporteur Qualifié
-; 7.jpg
-
-; 8h42
-; Perpignan (66000)
-; L'expert Déménageur / prix choc
-; 8.jpg
-
-; 8h48
-; Lyon (69008) 8e Arrondissement
-; Équipe de Déménageurs près de chez vous
-; 9.jpg
-
-; 8h54
-; Paris (75018) 18e Arrondissement
-; Déménagez en toute Sérénité
-; 10.jpg
