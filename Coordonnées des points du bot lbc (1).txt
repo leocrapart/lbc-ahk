@@ -1,0 +1,135 @@
+pc allumé, connécté au secteur et à la wifi : 
+aucune page ouverte
+
+aller sur l'icone bureau google chrome : 50 * 30
+double clic
+( s'assurer que la page s'ouvre en plein écran )
+
+aller sur les trois points : 1345 * 52 
+cliquer
+aller sur nouvelle fenetre de navigation privée : 1150 * 125
+cliquer
+
+
+
+aller sur barre de recherche sur chrome : 200  *  53
+cliquer
+taper : leboncoin.fr/deposer-une-annonce
+entrer
+
+aller sur barre de recherche sur chrome : 200  *  53
+cliquer
+taper : leboncoin.fr
+entrer 
+
+attendre que la page se charge
+
+aller sur le pop up cookies : 788  *  622
+cliquer
+
+attendre que la page se charge 
+
+aller sur barre de recherche sur chrome : 200  *  53
+cliquer
+taper : leboncoin.fr/deposer-une-annonce
+entrer 
+
+aller sur l'icone se connecter :  1169  *  105
+cliquer
+
+aller sur E-mail : 540 * 420
+cliquer 
+renseigner l'identifiant depuis data
+
+aller sur Mot de passe : 540  * 520
+cliquer
+renseigner le mot de passe depuis data
+
+aller sur Se connecter : 680 * 625
+cliquer
+
+attendre que la page se charge
+
+aller sur Que proposez vous aujourdhui : 300 * 300
+cliquer
+taper : prestations
+
+aller sur Prestations de services : 260 * 360
+cliquer
+
+aller sur Continuer : 890 * 370
+cliquer
+
+aller sur titre de l'annonce : 210 * 270
+cliquer
+renseigner le titre depuis data
+
+
+aller sur Description de l'annonce : 220 * 480
+cliquer
+renseigner le texte depuis data
+
+
+aller sur les coordonnées : 870 * 320
+cliquer 
+scroler 
+aller sur Continuer : 880  * 650
+cliquer
+
+
+
+aller sur continuer : 900 * 340 
+cliquer
+
+aller sur ajouter des images : 250 * 300
+ajouter des images depuis data
+etc
+
+aller sur continuer : 890 * 600
+cliquer
+
+aller sur Renseigner votre adresse ou votre ville : 320 * 240
+cliquer 
+tout séléctionner
+renseigner ville + code postal depuis data 
+
+
+aller sur les coordonnées : 320 * 295
+cliquer
+
+aller sur Continuer : 880 * 510 
+cliquer
+
+aller sur Téléphone : 590 * 445
+cliquer
+tout séléctionner 
+renseigner le numéro depuis data
+
+aller sur continuer : 890 * 590
+cliquer
+
+aller sur Déposer sans booster mon annonce : 1050 * 700 
+cliquer
+
+aller sur Leboncoin : 220 * 100 
+cliquer
+
+réptéter le process 29 autre fois avec une intervalle de 6 minutes entre chaque annonce
+pour les 29 villes restantes 
+
+
+aller sur barre de recherche sur chrome : 200  *  53
+cliquer
+taper : leboncoin.fr/deposer-une-annonce
+entrer 
+
+aller sur l'avatar du compte :  1180 * 105
+cliquer 
+
+aller sur se déconnecter : 1130 * 415
+cliquer
+
+
+
+
+
