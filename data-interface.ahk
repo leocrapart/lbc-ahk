@@ -1,58 +1,48 @@
 #Include %A_ScriptDir%\xlsx.ahk
 
-arr := ExcelToArray("data3.xlsx")
+arr := ExcelToArray("data.xlsx")
 
-title(x)
-{
+title(x) {
 	global arr
 	return arr[x+1, 1]
 }
 
-description(x)
-{
+description(x) {
 	global arr
 	return arr[x+1, 2]
 }
 
-image(x)
-{
+image(x) {
 	global arr
 	return arr[x+1, 3]
 }
 
-location(x)
-{
+location(x) {
 	global arr
 	return arr[x+1, 4]
 }
 
-phone1()
-{
-	global arr
-	return arr[2, 7]
-}
-
-phone2()
-{
-	global arr
-	return arr[2, 8]
-}
-
-
-phone(x)
-{
+phone(x) {
 	global arr
 	phoneId := arr[x+1, 5]
-	if (phoneId = 1)
-	{
-		return phone1()
-	}
-	else if (phoneId = 2)
-	{
-		return phone2()
-	}
-	return
+	return arr[2, 6+phoneId]
 }
+
+timing() {
+	global arr
+	return arr[5, 7]
+}
+
+email() {
+	global arr
+	return arr[8, 7]
+}
+
+password() {
+	global arr
+	return arr[11, 7]
+}
+
 
 
 ; MsgBox % title(1)
@@ -73,8 +63,9 @@ phone(x)
 ; MsgBox % location(3)
 ; MsgBox % phone(3)
 
-
-
+; msgbox % email()
+; msgbox % password()
+; msgbox % timing()
 
 ; Gosub, read
 
