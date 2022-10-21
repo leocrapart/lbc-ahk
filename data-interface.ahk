@@ -2,30 +2,35 @@
 
 arr := ExcelToArray("data.xlsx")
 
-title(x) {
+title(n) {
 	global arr
-	return arr[x+1, 1]
+	return arr[n+1, 1]
 }
 
-description(x) {
+description(n) {
 	global arr
-	return arr[x+1, 2]
+	return arr[n+1, 2]
 }
 
-image(x) {
+image(n) {
 	global arr
-	return arr[x+1, 3]
+	return arr[n+1, 3]
 }
 
-location(x) {
+location(n) {
 	global arr
-	return arr[x+1, 4]
+	return arr[n+1, 4]
 }
 
-phone(x) {
+phone(n) {
 	global arr
-	phoneId := arr[x+1, 5]
+	phoneId := arr[n+1, 5]
 	return arr[2, 6+phoneId]
+}
+
+empty(n) {
+	global arr
+ 	return (arr[n+1, 1] == "")
 }
 
 timing() {
@@ -43,6 +48,7 @@ password() {
 	return arr[11, 7]
 }
 
+; msgbox % title(1)
 
 
 ; MsgBox % title(1)

@@ -9,16 +9,22 @@ posTooltip:
 return
 
 
-; uncomment to activate ctrl-r launch
-; ^r::
-; 	; Gosub, openPrivateLeboncoin
-; 	; Gosub, login
+^r::
+  ; init()
 
-; 	n := 7
+  loop 30 {
+    if (empty(A_Index)) {
+      break
+    }
+    n := A_Index
+    deposerAnnoncePro(title(n), description(n), image(n), location(n), phone(n))
+    sleep timing() * 1000
+  }
 
-; 	deposerAnnoncePro(title(n), description(n), image(n), location(n), phone(n))
-; 	sleep 330000
-; 	return
+  ; logout()
+	return
+
+
 
 doubleClick(x, y) {
 	click %x%, %y%
@@ -40,49 +46,68 @@ paste(text) {
 }
 
 init(email, password) {
-  click(398, 84)
+  ; google chrome icon 
+  doubleClick(50, 30)
+  sleep 5000
+
+  ; (full screen web page)
+
+  ; private navigation
+  click 1345, 52
+  sleep 500
+  click 1150, 125
+  sleep 5000
+
+  ; chrome search bar
+  click 200, 53
+  paste("https://leboncoin.fr/deposer-une-annonce")
+  send {enter}
+  sleep 7000
+
+  ; again
+  click 200, 53
   paste("https://leboncoin.fr")
   send {enter}
   sleep 7000
 
   ; autoriser les cookies
-  click 732, 674
-  sleep 1000
+  click 788, 622
+  sleep 2000
 
   ; login
   ; aller à deposer une annonce
-  click 398, 84
+  click 200, 53
   paste("https://leboncoin.fr/deposer-une-annonce")
   send {enter}
   sleep 3000
   ; icone se connecter
-  click 1130, 126
+  click 1169, 105
   sleep 5000
 
   ; email
-  click 495, 454
+  click 540, 420
 	sleep 500
   paste(%email%)
   sleep 500
   ; password
-  click 542, 548
+  click 540, 520
   sleep 500
   paste(%password%)
   sleep 500
 
   ; bouton se connecter
-  click 619, 668
+  click 680, 625
   sleep 7000
 
-  ; cliquer sur "j'ai compris"
-  click 605, 644
-  sleep 2000
+  ; ; cliquer sur "j'ai compris"
+  ; click 605, 644
+  ; sleep 2000
 	return
 }
 
 deposerAnnoncePro(title, description, image, location, phone) {
 ; deposer annonce url
-  click 179, 87
+  click 200, 53
   sleep 500
   paste("leboncoin.fr/deposer-une-annonce")
   send {enter}
@@ -92,59 +117,39 @@ deposerAnnoncePro(title, description, image, location, phone) {
   ; categories 
   ; services > prestation de services
   ; search bar
-  click 314 334
+  click 300, 300
   sleep 200
-  paste("prestation")
+  paste("prestations")
   sleep 1000
-  send {enter}
+  click 260, 360
   sleep 1000
   ;continue
-  click 840 400
+  click 890, 370
 
   ; title
-  click 159 295
-  click 159 295
+  doubleClick(210, 270)
   sleep 200
   paste(%title%)
 
   ;; description
-  click 147 517
+  click 220, 480
   paste(%description%)
   ; unfocus 
-  click 62 424
+  click 50, 300
   ; continue
   send {end}
   sleep 1000
-  click 846 726
+  click 880, 650
   sleep 1000
 
   ; price
   ; no price
 
   ; continue
-  click 825 367
+  click 900, 340
   sleep 1000
 
   ;; image
-  ; load image button
-  click 198 303
-  sleep 1000
-
-
-  ; click Telechargements
-  click 337 288
-  sleep 200
-
-  ; search bar
-  click 873 116
-  sleep 500
-  paste(%image%)
-  sleep 1000
-  send {enter}
-  sleep 2000
-  click 476 253
-  sleep 500
-  send {enter}
 
   ; wait image loading
   sleep 4000
@@ -153,7 +158,7 @@ deposerAnnoncePro(title, description, image, location, phone) {
   sleep 1000
 
   ; location
-  tripleClick(661, 273)
+  tripleClick(320, 240)
   sleep 1000
   paste(%location%)
   sleep 1000
@@ -170,21 +175,21 @@ deposerAnnoncePro(title, description, image, location, phone) {
 
 
   ; phone
-  doubleClick(614, 514)
+  doubleClick(590, 445)
   sleep 500
   paste(%phone%)
   sleep 1000
 
   ; ;;;;;;;;;;;;;;;;;;;;; 
   ; continue
-  click 848 669
+  click 890, 590
   sleep 3000
   ; no boost
-  click 995 775
+  click 1050, 700
   sleep 4000
 
   ; back to homepage
-  click 174 131
+  click 220, 100
   sleep 3000
 
   ; idle position, tells the bot finished
@@ -192,6 +197,19 @@ deposerAnnoncePro(title, description, image, location, phone) {
 	return
 }
 
+
+logout() {
+  ; search bar
+  click 200, 53
+  paste("leboncoin.fr/deposer-une-annonce")
+
+  ; account icon
+  click 1180, 105
+
+  ; logout
+  click 1130, 415
+  return
+}
 
 ; past one
 
