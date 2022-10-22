@@ -4,14 +4,13 @@ SetTimer, posTooltip, 10
 return
 
 posTooltip:
-	MouseGetPos, x, y
-	ToolTip, % "x: " x "`ny: " y
+  MouseGetPos, x, y
+  ToolTip, % "x: " x "`ny: " y
 return
 
 
 ^r::
-  ; init()
-
+  init()
   loop 30 {
     if (empty(A_Index)) {
       break
@@ -21,31 +20,31 @@ return
     sleep timing() * 1000
   }
 
-  ; logout()
-	return
+  logout()
+  return
 
 
 
 doubleClick(x, y) {
-	click %x%, %y%
-	click %x%, %y%
-	return
+  click %x%, %y%
+  click %x%, %y%
+  return
 }
 
 tripleClick(x, y) {
-	click %x%, %y%
-	click %x%, %y%
-	click %x%, %y%
-	return
+  click %x%, %y%
+  click %x%, %y%
+  click %x%, %y%
+  return
 }
 
 paste(text) {
-	clipboard = %text%
-	send ^v
-	return
+  clipboard = %text%
+  send ^v
+  return
 }
 
-init(email, password) {
+init() {
   ; google chrome icon 
   doubleClick(50, 30)
   sleep 5000
@@ -64,11 +63,7 @@ init(email, password) {
   send {enter}
   sleep 7000
 
-  ; again
-  click 200, 53
-  paste("https://leboncoin.fr")
-  send {enter}
-  sleep 7000
+
 
   ; autoriser les cookies
   click 788, 622
@@ -86,13 +81,13 @@ init(email, password) {
 
   ; email
   click 540, 420
-	sleep 500
-  paste(%email%)
+  sleep 500
+  paste(email())
   sleep 500
   ; password
   click 540, 520
   sleep 500
-  paste(%password%)
+  paste(password())
   sleep 500
 
   ; bouton se connecter
@@ -102,7 +97,7 @@ init(email, password) {
   ; ; cliquer sur "j'ai compris"
   ; click 605, 644
   ; sleep 2000
-	return
+  return
 }
 
 deposerAnnoncePro(title, description, image, location, phone) {
@@ -125,15 +120,19 @@ deposerAnnoncePro(title, description, image, location, phone) {
   sleep 1000
   ;continue
   click 890, 370
+  sleep 1000
 
   ; title
   doubleClick(210, 270)
-  sleep 200
-  paste(%title%)
+  sleep 500
+  paste(title)
+  sleep 500
 
   ;; description
   click 220, 480
-  paste(%description%)
+  paste(description)
+  sleep 500
+
   ; unfocus 
   click 50, 300
   ; continue
@@ -150,17 +149,39 @@ deposerAnnoncePro(title, description, image, location, phone) {
   sleep 1000
 
   ;; image
+  ; ajouter image icon 
+  click 250, 300
+  sleep 1000
+
+  ; path bar
+  click 346, 53
+  sleep 500
+  paste("C:\Users\admin\Desktop\lbc-images")
+  sleep 500
+  send {Enter}
+  sleep 500
+
+  ; file name
+  click 269, 416
+  sleep 500
+  paste(image)
+  sleep 500
+
+  ; open
+  click 510, 444
+
+
 
   ; wait image loading
   sleep 4000
   ; continue
-  click 826 642
+  click 890, 606
   sleep 1000
 
   ; location
   tripleClick(320, 240)
   sleep 1000
-  paste(%location%)
+  paste(location)
   sleep 1000
   send {enter}
   sleep 1000
@@ -175,10 +196,14 @@ deposerAnnoncePro(title, description, image, location, phone) {
 
 
   ; phone
-  doubleClick(590, 445)
-  sleep 500
-  paste(%phone%)
+  click 561, 444
+  sleep 100
+  click 561, 444
   sleep 1000
+  send % phone
+  sleep 1000
+
+  
 
   ; ;;;;;;;;;;;;;;;;;;;;; 
   ; continue
@@ -193,8 +218,8 @@ deposerAnnoncePro(title, description, image, location, phone) {
   sleep 3000
 
   ; idle position, tells the bot finished
-	mouseMove 100, 100
-	return
+  mouseMove 100, 100
+  return
 }
 
 
@@ -213,104 +238,5 @@ logout() {
 
 ; past one
 
-deposerAnnoncePro0(title, description, image, location, phone) {
 
-; deposer annonce url
-	Click 274, 47
-	Sleep 500
-	Send https://www.leboncoin.fr/deposer-une-annonce
-	Send {Enter}
-	Sleep 3000
-
-; prestation de services
-; categories 
-; services > prestation de services
-	Click 400, 800
-	Click 692, 439
-	Sleep 1000
-; continue
-	Click 1000, 400
-	Sleep 1000
-
-; title
-	Click 300, 300
-	Send % title
-
-; description
-	Click 313, 513
-
-	Clipboard = % description
-	SendInput, ^v
-; unfocus from multiline text input
-	Click 100, 400
-; continue
-	Send {WheelDown}
-	Sleep 75
-	Send {WheelDown}
-	Sleep 75
-	Sleep 1000
-	Click 1000, 800
-	Sleep 1000
-
-; ; price
-; 	Click, 300, 300
-; 	Send, 10
-
-; continue
-	Click 1000, 370
-	Sleep 1000
-
-; image
-; load image button
-	Click 380, 340
-	Sleep 1000
-; path bar
-	Click 460, 50
-	Sleep 1000
-; path to image folder
-	Send C:\Users\leocr\Desktop\lbc-images
-	Send {Enter}
-	Sleep 1000
-; file name
-; click file name input
-	Click 310, 414
-; insert file name
-	Send % image
-	Send {Enter}
-
-; wait image loading
-	Sleep 4000
-; continue
-	Click 1000, 640
-	Sleep 1000
-
-; location
-	Click Left, 400, 275, 3
-	Send % location
-	Send {Enter}
-	Sleep 1000
-; continue
-	Click 400, 275
-	Send {Enter}
-	Sleep 1000
-
-; phone
-	Click Left, 900, 575, 2
-	Send % phone
-;;;;;;;;;;;;;;;;;;;;; 
-; ; continue
-; 	Click, 1000, 730
-; 	Sleep, 2000
-
-; ; no boost
-; 	Click, 1200, 830
-; 	Sleep, 500
-
-; ; back to homepage
-; 	Click, 330, 127
-; 	Sleep, 1000
-
-	return
-}
-	
 ESC::ExitApp
