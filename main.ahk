@@ -240,3 +240,11 @@ logout() {
 
 
 ESC::ExitApp
+
+
+
+
+;; next ideas
+; 30 -> one day, 3 batches
+; each line break = one batch, up to 3
+; read excel by sheet name (customize xlsx.ahk)
