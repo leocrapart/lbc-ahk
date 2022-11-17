@@ -11,7 +11,7 @@ return
 
 ^r::
   init()
-  loop 30 {
+  loop {
     if (empty(A_Index)) {
       break
     }
@@ -112,14 +112,14 @@ deposerAnnoncePro(title, description, image, location, phone) {
   ; categories 
   ; services > prestation de services
   ; search bar
-  click 300, 300
+  click 300, 350
   sleep 200
   paste("prestations")
   sleep 1000
-  click 260, 360
+  send {enter}
   sleep 1000
   ;continue
-  click 890, 370
+  click 890, 400
   sleep 1000
 
   ; title
@@ -196,9 +196,9 @@ deposerAnnoncePro(title, description, image, location, phone) {
 
 
   ; phone
-  click 561, 444
+  click 561, 490
   sleep 100
-  click 561, 444
+  click 561, 490
   sleep 1000
   send % phone
   sleep 1000
@@ -207,7 +207,7 @@ deposerAnnoncePro(title, description, image, location, phone) {
 
   ; ;;;;;;;;;;;;;;;;;;;;; 
   ; continue
-  click 890, 590
+  click 890, 640
   sleep 3000
   ; no boost
   click 1050, 700
@@ -240,11 +240,3 @@ logout() {
 
 
 ESC::ExitApp
-
-
-
-
-;; next ideas
-; 30 -> one day, 3 batches
-; each line break = one batch, up to 3
-; read excel by sheet name (customize xlsx.ahk)
