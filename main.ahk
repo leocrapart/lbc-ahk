@@ -94,9 +94,9 @@ init() {
   click 680, 625
   sleep 7000
 
-  ; ; cliquer sur "j'ai compris"
-  ; click 605, 644
-  ; sleep 2000
+  ; cliquer sur "j'ai compris"
+  click 670, 586
+  sleep 2000
   return
 }
 
