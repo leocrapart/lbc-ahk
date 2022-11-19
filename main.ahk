@@ -8,6 +8,13 @@ posTooltip:
   ToolTip, % "x: " x "`ny: " y
 return
 
+; next : 
+; time : start a function at 8am
+;        start a function at desired time retrieved from the excel sheet
+; data interface for data2 : timing2(), title2(n), description2(n), image2(n), location2(n), phone2(n)
+; init2()
+; email2()
+; password2()
 
 ^r::
   init()
